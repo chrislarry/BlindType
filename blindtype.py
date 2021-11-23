@@ -1,11 +1,9 @@
 #!/bin/python
 import time, random
-#from pynput import keyboard
 chars=["a", "b", "c", "d", "e", "f","g","h", "i", "j", "k" ,"l" ,"m", "n",
        "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y","z"]
 inp=""
-starttime=time.time()
-lasttime=starttime
+
 avertime=[]
 sumaver=0
 lifes = 3
@@ -13,37 +11,49 @@ points=0
 level=1
 levelup=0
 print("")
-print("Blind Type Game")
+print(" -----Blind Type Game-----")
+print("")
+print(" Get Ready....")
+time.sleep(1)
+print("3")
+time.sleep(1)
+print("2")
+time.sleep(1)
+print("1")
+time.sleep(1)
+print("------GO------- ")
+starttime=time.time()
+lasttime=starttime
 print("")
 while inp.lower()!="exit":
-    if level==7:
-        aver=aver-lifes
+    if level==4:
+        aver=aver+3-lifes
         print("----------------")
         print("----------------")
-        print("The End.")
+        print(" The End.")
         print("----------------")
         print("----------------")
-        print(" Average:"+ str(aver))
+        print(" Average: "+ str(round(aver,2)))
         print("----------------")
         print("----------------")
-        if aver < 1:
-            print("Exelent")
-        elif aver < 2:
-            print("Good")
+        if aver < 1.5:
+            print(" Exelent")
         elif aver < 3:
-            print("Fare")
-        elif aver < 4:
-            print("You can do better")
+            print(" Good")
+        elif aver < 5:
+            print(" Fare")
+        elif aver < 7:
+            print(" You can do better")
         else:
-            print("Try again")
+            print(" Try again")
         print("----------------")
         print("----------------")
         break
 
-    if levelup==3:
+    if levelup==30:
         level+=1
         print("‐-------‐-------")
-        print("Level up "+str(level))
+        print(" Level "+str(level))
         print("‐-------‐-------")
         levelup=0
     getran=""
@@ -65,7 +75,7 @@ while inp.lower()!="exit":
     else:
         lifes-=1
         if lifes==0:
-            print("Yor score is "+str(points)+"/nGame Over")
+            print(" Yor score is "+str(points)+"\n Game Over")
             inp ="exit"
-        print("Failed, you have "+ str(lifes) +" lifes.")
+        print(" Failed, you have "+ str(lifes) +" lifes.")
     lasttime=time.time()
